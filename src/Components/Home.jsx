@@ -2,14 +2,19 @@ import React from "react";
 // import "../App.css";
 
 import "../styles/Home.css";
-
+import profile from "../Images/profile.png";
 import {FaGithub} from "react-icons/fa";
 import {FiMail} from "react-icons/fi";
 import {TiArrowUp} from "react-icons/ti";
 import {RiLinkedinFill} from "react-icons/ri";
-import {Box, Link, SimpleGrid} from "@chakra-ui/react";
+import {Box, Link, SimpleGrid, useColorMode} from "@chakra-ui/react";
 
 export const Home = () => {
+
+  const {colorMode, toggleColorMode} = useColorMode();
+  const isDark = colorMode === "dark";
+
+
   return (
     <div className="home_Container" id="home">
       <SimpleGrid columns={[1, 1, 1, 2]}>
@@ -34,7 +39,7 @@ export const Home = () => {
           <div className="home_Container_box">
             <div className="home_box_img">
               <img
-                src=" https://avatars.githubusercontent.com/u/101389401?v=4"
+                src={profile}
                 alt="Profile_image"
               />
             </div>

@@ -4,9 +4,12 @@ import { Box, SimpleGrid } from "@chakra-ui/react";
 import { useState } from "react";
 import { useEffect } from "react";
 
+
 export const About = () => {
   const [btn, setBtn] = useState(false);
- 
+
+ const red = {backgroundColor:"#E4002B",color:"#fff"}
+ const white = {backgroundColor:"#fff"}
 
   const handleAbourMe = () => {
     setBtn(true);
@@ -28,7 +31,7 @@ export const About = () => {
       </div>
 
       <div className="about_btn">
-        <button onClick={handleAbourMe}>About Me</button>
+        <button onClick={handleAbourMe} style={btn?white :red}>About Me</button>
         <button onClick={handleExperience}>Experience</button>
       </div>
 

@@ -27,11 +27,12 @@ body{
 .home_box_img{
     height: 40%;
     width: 40%;
+    background-color: #E4002B;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    cursor: pointer;
+}
 
-}
-.home_box_img img{
-  border-radius: 20%;
-}
 
 .home_box_content h5{
   font-size: 25px;

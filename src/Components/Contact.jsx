@@ -47,7 +47,7 @@ export const Contact = () => {
               <input className="input_tag" type="number" placeholder="Number" />
             </div>
             <div className="input_message">
-              <input
+              <textarea
                 className="input_tag_text_message"
                 type="text"
                 placeholder="Your Message"

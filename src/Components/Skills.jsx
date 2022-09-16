@@ -12,97 +12,135 @@ import postman from "../Images/postman.png";
 import npm from "../Images/npm.svg";
 import git from "../Images/git.png";
 import mongodb from "../Images/mongodb.png";
-import vscode from "../Images/vs_code.png";
+import dsa from "../Images/dsa.png";
 import nodejs from "../Images/nodejs.png";
 import expressjs from "../Images/expressjs.webp";
 import netlify from "../Images/netlify.svg";
 import { useState } from "react";
 
 export const Skills = () => {
-  const [skills, setSkills] = useState([]);
+  const [btn, setBtn] = useState(false);
+
+  const red = { backgroundColor: "#E4002B", color: "#fff" };
+  const white = { backgroundColor: "#fff" };
+
 
   let skills_data = [
     {
       url: html,
       name: "HTML",
-      category: "frontend",
+      category1: "frontend",
     },
 
     {
       url: css,
       name: "CSS",
-      category: "frontend",
+      category1: "frontend",
     },
 
     {
       url: boostrap,
       name: "Boostrap",
-      category: "frontend",
+      category1: "frontend",
     },
 
     {
       url: js,
       name: "JavaScript",
-      category: "frontend",
+      category1: "frontend",
     },
 
     {
       url: react,
       name: "React",
-      category: "frontend",
+      category1: "frontend",
     },
 
     {
       url: redux,
       name: "Redux",
-      category: "frontend",
+      category1: "frontend",
     },
 
     {
       url: chakra,
       name: "Chakra UI",
-      category: "frontend",
+      category1: "frontend",
     },
 
     {
       url: nodejs,
       name: "Node JS",
-      category: "backend",
+      category2: "backend",
     },
 
     {
       url: expressjs,
       name: "Express",
-      category: "backend",
+      category2: "backend",
     },
 
     {
       url: mongodb,
       name: "MongoDB",
-      category: "backend",
+      category2: "backend",
     },
 
+    {
+      url: postman,
+      name: "Postman",
+      category1: "frontend",
+      category2: "backend",
+    },
 
+    {
+      url: git,
+      name: "Git",
+      category1: "frontend",
+      category2: "backend",
+    },
 
+    {
+      url: netlify,
+      name: "Netlify",
+      category1: "frontend",
+      category2: "backend",
+    },
 
-
+    {
+      url: dsa,
+      name: "DSA",
+      category1: "frontend",
+      category2: "backend",
+    },
 
   ];
 
+
+  const [skills, setSkills] = useState(skills_data);
+
   const handleAll = () => {
-    setSkills(skills_data)
+    setSkills(skills_data);
+    setBtn(true);
   };
 
   const handleFrontend = () => {
-   let data = skills_data.filter((elem,index)=>{
-    return elem.category=="frontend"
+    let data = skills_data.filter((elem, index) => {
+      return elem.category1 == "frontend";
+    });
 
- 
-   })
-
+    setSkills(data);
+    setBtn(false);
   };
 
-  const handleBackend = () => {};
+  const handleBackend = () => {
+    let data = skills_data.filter((elem, index) => {
+      return elem.category2 == "backend";
+    });
+
+    setSkills(data);
+    setBtn(false);
+  };
 
   console.log(skills);
 
@@ -115,15 +153,17 @@ export const Skills = () => {
       </div>
 
       <div className="skills_btn">
-        <button onClick={handleAll}>All</button>
+        <button onClick={handleAll} style={btn ? red : white}>
+          All
+        </button>
         <button onClick={handleFrontend}>Frontend</button>
         <button onClick={handleBackend}>Backend</button>
       </div>
 
       <div className="skills_grid">
         <SimpleGrid columns={[2, 3, 4, 7]} spacing="30px">
-          {skills_data?.map((elem) => (
-            <Box>
+          {skills?.map((elem) => (
+            <Box key={elem.name}>
               <div className="skills_grid_box">
                 <div className="skills_grid_box_img">
                   <img src={elem.url} alt="skills_logo" />
