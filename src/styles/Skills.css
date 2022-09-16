@@ -59,3 +59,13 @@ align-items: center;
   font-weight: 600;
 }
 
+/* --------------------------------------------------------------- */
+.skills_btn{
+  text-align: center;
+}
+
+.skills_btn button{
+  padding: 10px;
+  border: 1px solid red;
+}
+

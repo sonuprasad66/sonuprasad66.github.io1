@@ -1,5 +1,5 @@
 import React from "react";
-import {Box, SimpleGrid} from "@chakra-ui/react";
+import { Box, SimpleGrid } from "@chakra-ui/react";
 import "../styles/Skills.css";
 import html from "../Images/html.png";
 import css from "../Images/css.png";
@@ -16,8 +16,96 @@ import vscode from "../Images/vs_code.png";
 import nodejs from "../Images/nodejs.png";
 import expressjs from "../Images/expressjs.webp";
 import netlify from "../Images/netlify.svg";
+import { useState } from "react";
 
 export const Skills = () => {
+  const [skills, setSkills] = useState([]);
+
+  let skills_data = [
+    {
+      url: html,
+      name: "HTML",
+      category: "frontend",
+    },
+
+    {
+      url: css,
+      name: "CSS",
+      category: "frontend",
+    },
+
+    {
+      url: boostrap,
+      name: "Boostrap",
+      category: "frontend",
+    },
+
+    {
+      url: js,
+      name: "JavaScript",
+      category: "frontend",
+    },
+
+    {
+      url: react,
+      name: "React",
+      category: "frontend",
+    },
+
+    {
+      url: redux,
+      name: "Redux",
+      category: "frontend",
+    },
+
+    {
+      url: chakra,
+      name: "Chakra UI",
+      category: "frontend",
+    },
+
+    {
+      url: nodejs,
+      name: "Node JS",
+      category: "backend",
+    },
+
+    {
+      url: expressjs,
+      name: "Express",
+      category: "backend",
+    },
+
+    {
+      url: mongodb,
+      name: "MongoDB",
+      category: "backend",
+    },
+
+
+
+
+
+
+  ];
+
+  const handleAll = () => {
+    setSkills(skills_data)
+  };
+
+  const handleFrontend = () => {
+   let data = skills_data.filter((elem,index)=>{
+    return elem.category=="frontend"
+
+ 
+   })
+
+  };
+
+  const handleBackend = () => {};
+
+  console.log(skills);
+
   return (
     <div className="skills_container" id="skillspage">
       <div className="skills_heading">
@@ -26,19 +114,30 @@ export const Skills = () => {
         </h2>
       </div>
 
+      <div className="skills_btn">
+        <button onClick={handleAll}>All</button>
+        <button onClick={handleFrontend}>Frontend</button>
+        <button onClick={handleBackend}>Backend</button>
+      </div>
+
       <div className="skills_grid">
         <SimpleGrid columns={[2, 3, 4, 7]} spacing="30px">
-          <Box>
-            <div className="skills_grid_box">
-              <div className="skills_grid_box_img">
-                <img src={html} alt="html" />
-              </div>
+          {skills_data?.map((elem) => (
+            <Box>
+              <div className="skills_grid_box">
+                <div className="skills_grid_box_img">
+                  <img src={elem.url} alt="skills_logo" />
+                </div>
 
-              <div className="skills_grid_box_h3">
-                <h3>HTML</h3>
+                <div className="skills_grid_box_h3">
+                  <h3>{elem.name}</h3>
+                </div>
               </div>
-            </div>
-          </Box>
+            </Box>
+          ))}
+
+          {/* ___________________________________________________________________________________ */}
+          {/* 
           <Box>
             <div className="skills_grid_box">
               <div className="skills_grid_box_img">
@@ -182,7 +281,7 @@ export const Skills = () => {
                 <h3>Netlify</h3>
               </div>
             </div>
-          </Box>
+          </Box> */}
         </SimpleGrid>
       </div>
     </div>

@@ -1,22 +1,24 @@
 import React from "react";
 import "../styles/About.css";
-import {Box, SimpleGrid} from "@chakra-ui/react";
-import {useState} from "react";
-import {useEffect} from "react";
+import { Box, SimpleGrid } from "@chakra-ui/react";
+import { useState } from "react";
+import { useEffect } from "react";
 
 export const About = () => {
-  // const [btn, setBtn] = useState(false);
+  const [btn, setBtn] = useState(false);
+ 
 
-  // const handleAbourMe = () => {
-  //   setBtn(true);
-  // };
-  // const handleExperience = () => {
-  //   setBtn(false);
-  // };
+  const handleAbourMe = () => {
+    setBtn(true);
+  };
+  const handleExperience = () => {
+    setBtn(false);
 
-  // useEffect(() => {
-  //   handleAbourMe();
-  // }, []);
+  };
+
+  useEffect(() => {
+    handleAbourMe();
+  }, []);
   return (
     <div id="about" className="about_container">
       <div className="about_heading">
@@ -25,10 +27,10 @@ export const About = () => {
         </h2>
       </div>
 
-      {/* <div className="about_btn">
+      <div className="about_btn">
         <button onClick={handleAbourMe}>About Me</button>
         <button onClick={handleExperience}>Experience</button>
-      </div> */}
+      </div>
 
       <div className="about_all">
         <SimpleGrid columns={[1, 1, 1, 2]}>
@@ -571,46 +573,71 @@ export const About = () => {
           </div>
 
           <div className="about_box2">
-            {/* {btn ? ( */}
-            <div>
-              <Box>
-                <ul>
-                  <li>
-                    Hello! My name is Sonu Prasad and I enjoy creating things
-                    that live on the internet.
-                  </li>
-                  <li>
-                    I am a Passion-driven MERN developer with hands-on
-                    experience in developing and organizing projects, curious
-                    and detail-oriented with a keen interest to build
-                    interactive and user-friendly websites. Looking for an
-                    exciting opportunity to work as a full-stack developer that
-                    promotes long-term learning and growth alongside the
-                    organization.
-                  </li>
-                  {/* <li>
-                    My interest in web development started back last six months
-                    when I was trying to edit things on the web, that taught me
-                    a lot about HTML & CSS.
-                  </li> */}
-                </ul>
-              </Box>
-            </div>
-            {/* ) : (
+            {btn ? (
               <div>
                 <Box>
                   <ul>
                     <li>
-                      I have hand on experience 1200 hours in last six months.
+                      Hello! My name is Sonu Prasad and I enjoy creating things
+                      that live on the internet.
                     </li>
-                    <li>I worked some good projects.</li>
                     <li>
-                      Like Clone of NDTV.com, ZoomCar.com and some mini Project.
+                      I am a Passion-driven MERN developer with hands-on
+                      experience in developing and organizing projects, curious
+                      and detail-oriented with a keen interest to build
+                      interactive and user-friendly websites. Looking for an
+                      exciting opportunity to work as a full-stack developer
+                      that promotes long-term learning and growth alongside the
+                      organization.
                     </li>
+                    {/* <li>
+                    My interest in web development started back last six months
+                    when I was trying to edit things on the web, that taught me
+                    a lot about HTML & CSS.
+                  </li> */}
                   </ul>
                 </Box>
               </div>
-            )} */}
+            ) : (
+              <div>
+                <Box>
+                  <div className="experience">
+                    <div className="coding_h">
+                      <h2>1200+</h2>
+                      <p>Hrs Coding</p>
+                    </div>
+                    <div className="projects">
+                      <SimpleGrid columns={[1, 1, 2, 2]} spacing="40px">
+                        <Box className="projects_exp">
+                          <div className="content_exp">
+                            <h4>60+</h4>
+                            <p>Mini Projects</p>
+                          </div>
+                        </Box>
+                        <Box className="projects_exp">
+                          <div className="content_exp">
+                            <h4>05+</h4>
+                            <p>Major Projects</p>
+                          </div>
+                        </Box>
+                        <Box className="projects_exp">
+                          <div className="content_exp">
+                            <h4>300+</h4>
+                            <p>DSA Problems</p>
+                          </div>
+                        </Box>
+                        <Box className="projects_exp">
+                          <div className="content_exp">
+                            <h4>200+</h4>
+                            <p>Hrs Soft Skills</p>
+                          </div>
+                        </Box>
+                      </SimpleGrid>
+                    </div>
+                  </div>
+                </Box>
+              </div>
+            )}
           </div>
         </SimpleGrid>
       </div>
